@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="restaurantDetails"
+            type="com.sachin.nearbyresturants.network.dto.RestaurantDetail" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/restaurant_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="5dp"
+        android:background="@mipmap/ic_launcher"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        bind:restaurantImage="@{restaurantDetails.photos.get(0)}"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:id="@+id/restaurant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{restaurantDetails.name}"
+        android:textSize="20sp"
+        android:maxLines="1"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/restaurant_image"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/restaurant_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{restaurantDetails.vicinity}"
+        android:textSize="15sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:maxLines="2"
+        app:layout_constraintLeft_toRightOf="@+id/restaurant_image"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_name"/>
+
+    <TextView
+        android:id="@+id/restaurant_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{restaurantDetails.distance}"
+        android:layout_marginTop="15dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/restaurant_image"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
