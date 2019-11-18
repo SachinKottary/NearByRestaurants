@@ -8,7 +8,7 @@ import android.text.TextUtils;
 
 public class ServerConstants {
 
-    public static final String APIKEY = "AIzaSyBKp7-uD7_7wCp1i173jnbuCMkpstXSI2Q";
+    public static final String APIKEY = "";//Update API key here
     private static String LOCATION_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?type=restaurant&key="+APIKEY+"&rankby=distance&location=";
     private static final String nextPageParam = "&pagetoken=";
 
