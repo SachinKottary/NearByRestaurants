@@ -62,7 +62,9 @@ public class RestaurantListFragment extends BaseFragment {
         recyclerView = view.findViewById(R.id.restaurant_list);
         progressBar = view.findViewById(R.id.progress_bar);
         networkErrorText = view.findViewById(R.id.network_error_text);
-        recyclerView.addOnScrollListener(new EndlessRecyclerViewOnScrollListener(new LinearLayoutManager(getContext())) {
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(manager);
+        recyclerView.addOnScrollListener(new EndlessRecyclerViewOnScrollListener(manager) {
             @Override
             public void onLoadMore(int totalItemsCount, RecyclerView view) {
                 mViewModel.loadNearByRestaurantDetails();
