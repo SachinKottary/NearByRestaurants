@@ -59,7 +59,7 @@ public class RestaurantViewModel extends ViewModel {
         Double lang = lastLocation.getLongitude();
         String latLang = new DecimalFormat("#0.000000").format(lat) + "," + new DecimalFormat("#0.000000").format(lang);
         RestaurantDetailResponse detailResponse = restaurantDetailLiveData.getValue();
-        if (detailResponse != null && TextUtils.isEmpty(detailResponse.getNextPageToken())) {
+        if (detailResponse != null && !TextUtils.isEmpty(detailResponse.getNextPageToken())) {
             nextPageToken = detailResponse.getNextPageToken();
         }
         compositeDisposable.add(networkManager.getRestaurantDetails(latLang,
